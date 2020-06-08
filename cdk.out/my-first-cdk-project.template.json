@@ -7,20 +7,42 @@
           "ServerSideEncryptionConfiguration": [
             {
               "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "aws:kms"
+                "SSEAlgorithm": "AES256"
               }
             }
           ]
         },
         "BucketName": "myfirstcdkproject021",
-        "VersioningConfiguration": {
-          "Status": "Enabled"
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
         }
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
         "aws:cdk:path": "my-first-cdk-project/myBucketId/Resource"
+      }
+    },
+    "myBucketId1798CC364": {
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "my-first-cdk-project/myBucketId1/Resource"
+      }
+    }
+  },
+  "Outputs": {
+    "myBucketOutput1": {
+      "Description": "My first CDK Bucket",
+      "Value": {
+        "Ref": "myBucketId1798CC364"
+      },
+      "Export": {
+        "Name": "myBucketOutput1"
       }
     }
   }
